@@ -22,7 +22,7 @@ exports.createOrder = async(req,res)=>{
     }
 }
 
-exports.updateStatusOfOrder = async(req,res)=>{
+exports.updateOrderStatus = async(req,res)=>{
     const status = req.body;
     const Oid = req.params.id
     try{
@@ -42,7 +42,7 @@ exports.updateStatusOfOrder = async(req,res)=>{
     }
 };
 
-exports.cancleOrder = async(req,res) =>{
+exports.cancelOrder = async(req,res) =>{
     const Oid = req.params.id;
 
     try{
