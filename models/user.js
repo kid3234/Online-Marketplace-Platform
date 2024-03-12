@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../database/connection');
 
-const User = sequelize.define('user', {
+const Users = sequelize.define('Users', {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
@@ -27,4 +27,4 @@ const User = sequelize.define('user', {
   }
 });
 
-module.exports = User;
+module.exports = Users;

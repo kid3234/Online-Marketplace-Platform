@@ -1,7 +1,5 @@
 const Order = require("../models/order")
 
-
-
 exports.getAllOrders = async(req,res)=>{
    Order.findAll((err,products)=>{
     if(err){
@@ -18,6 +16,23 @@ exports.createOrder = async(req,res)=>{
         res.ststus(201).json(noewOrder);
     }catch(error){
         console.error("Error creating the Order: ", error);
+        res.ststus(500).json({error:"Internal server error"})
+    }
+}
+
+exports.getOrder = async(req,res)=>{
+    const {orderId} = req.params
+
+    try{
+        const order = await Order.findByPk(orderId);
+
+        if(!order){
+            return res.ststus(404).json({error:"Oeder not found"})
+        }
+
+        res.ststus(200).json(order)
+    }catch(error){
+        console.error("Error fetching order");
         res.ststus(500).json({error:"Internal server error"})
     }
 }

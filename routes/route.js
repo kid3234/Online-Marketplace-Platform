@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware');
 const authController = require('../controller/authController')
 const userController = require('../controller/userController')
 const productController = require('../controller/productController')
@@ -35,10 +36,10 @@ router.put('/order/:id', authMiddleware.authenticate, authMiddleware.authorize([
 router.delete('/api/orders/:orderId', authMiddleware.authenticate, orderController.cancelOrder);
 
 
-// Review routes
-router.get('/api/products/:productId/reviews', reviewController.getProductReviews);
-router.post('/api/products/:productId/reviews', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.createReview);
-router.put('/api/products/:productId/reviews/:reviewId', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.updateReview);
-router.delete('/api/products/:productId/reviews/:reviewId', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.deleteReview);
+// // Review routes
+// router.get('/api/products/:productId/reviews', reviewController.getProductReviews);
+// router.post('/api/products/:productId/reviews', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.createReview);
+// router.put('/api/products/:productId/reviews/:reviewId', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.updateReview);
+// router.delete('/api/products/:productId/reviews/:reviewId', authMiddleware.authenticate, authMiddleware.authorize(['buyer']), reviewController.deleteReview);
 
 module.exports = router
