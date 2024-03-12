@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "kidus1234",
+    "database": "marketplace",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "kidus1234",
+    "database": "marketplace",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "kidus1234",
+    "database": "marketplace",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
